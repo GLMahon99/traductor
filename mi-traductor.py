@@ -1,17 +1,19 @@
 
 #traductor de ingles a español utilzando googletrans
-
 from googletrans import Translator
 
 # Crear un objeto traductor
 translator = Translator()
 
-# Texto en inglés a traducir
-text_to_translate = input('ingresa texto a traducir: ')
+# Pedir al usuario que seleccione el idioma de destino
+select_lang_translate = input('Selecciona el idioma de destino (por ejemplo, "es" para español, "en" para inglés, "fr" para francés): ')
 
-# Traducir al español
-translated_text = translator.translate(text_to_translate, src='en', dest='es')
+# Texto en inglés a traducir
+text_to_translate = input('Ingresa el texto a traducir: ')
+
+# Traducir al idioma seleccionado
+translated_text = translator.translate(text_to_translate, dest=select_lang_translate)
 
 # Imprimir el texto traducido
-print(f"Texto en inglés: {text_to_translate}")
-print(f"Texto en español: {translated_text.text}")
+print(f"Texto original: {text_to_translate}")
+print(f"Texto traducido ({select_lang_translate}): {translated_text.text}")
